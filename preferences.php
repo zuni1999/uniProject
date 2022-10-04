@@ -13,13 +13,13 @@ if(isset($_POST['insert'])){
     
     $course=$_POST['course_p'];
     $time=$_POST['time_p'];
-    $time=$_POST['date_p'];
+    $date=$_POST['date_p'];
+
     
-    
 
 
 
-  $select="INSERT INTO `pref`(`id`,`course_p`, `time_p`,`date_p`) VALUES (NULL,'$course','$time',`date`)";
+  $select="INSERT INTO `pref`(`id`,`course_p`, `time_p`, `date_p`) VALUES (NULL,'$course','$time', '$date')";
 mysqli_query($conn,$select);
 if($select){
  
@@ -61,6 +61,8 @@ include 'fnav.php';
 <input type="text" name="course_p"  required>
 <p>Time preferecnes</p>
 <input type="text" name="time_p"  required>
+    <p>Date preferecnes</p>
+<input type="text" name="date_p"  required>
 
 
 

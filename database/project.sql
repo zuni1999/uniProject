@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 08:31 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: Oct 04, 2022 at 10:24 AM
+-- Server version: 8.0.27
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,13 +27,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `class`
 --
 
-CREATE TABLE `class` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `class`;
+CREATE TABLE IF NOT EXISTS `class` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `class_id` varchar(250) NOT NULL,
   `building` varchar(250) NOT NULL,
   `capacity` varchar(250) NOT NULL,
-  `multimedia` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `multimedia` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `class`
@@ -49,13 +51,15 @@ INSERT INTO `class` (`id`, `class_id`, `building`, `capacity`, `multimedia`) VAL
 -- Table structure for table `course`
 --
 
-CREATE TABLE `course` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE IF NOT EXISTS `course` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `course` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `enroll` varchar(250) NOT NULL,
-  `multi` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `multi` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `course`
@@ -71,13 +75,15 @@ INSERT INTO `course` (`id`, `course`, `title`, `enroll`, `multi`) VALUES
 -- Table structure for table `faculty`
 --
 
-CREATE TABLE `faculty` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `faculty`;
+CREATE TABLE IF NOT EXISTS `faculty` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `faculty_id` varchar(250) NOT NULL,
   `name` varchar(250) NOT NULL,
   `department` varchar(250) NOT NULL,
-  `desgination` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `desgination` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `faculty`
@@ -93,13 +99,15 @@ INSERT INTO `faculty` (`id`, `faculty_id`, `name`, `department`, `desgination`) 
 -- Table structure for table `login`
 --
 
-CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE IF NOT EXISTS `login` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `role` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `role` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `login`
@@ -116,87 +124,21 @@ INSERT INTO `login` (`id`, `username`, `email`, `password`, `role`) VALUES
 -- Table structure for table `pref`
 --
 
-CREATE TABLE `pref` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `pref`;
+CREATE TABLE IF NOT EXISTS `pref` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `course_p` varchar(250) NOT NULL,
   `time_p` varchar(250) NOT NULL,
-  `date_p` varchar(250) NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date_p` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `pref`
 --
 
-INSERT INTO `pref` (`id`, `course_p`, `time_p`,`date_p`) VALUES
-(1, 'cs201', 'timing 8pm',`1/2/2022`);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `class`
---
-ALTER TABLE `class`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `course`
---
-ALTER TABLE `course`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `faculty`
---
-ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pref`
---
-ALTER TABLE `pref`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `class`
---
-ALTER TABLE `class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `faculty`
---
-ALTER TABLE `faculty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `pref`
---
-ALTER TABLE `pref`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+INSERT INTO `pref` (`id`, `course_p`, `time_p`, `date_p`) VALUES
+(1, 'cs201', 'timiny 8pm', 'dummy');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
