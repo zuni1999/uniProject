@@ -31,7 +31,7 @@ include 'nav.php';
     <th>course preferences</th>
     <th>time preferences</th>
     <th>date preferences</th>
-    
+
   
 
     <?php
@@ -43,7 +43,6 @@ $id=$row['id'];
 $course=$row['course_p'];
 $time=$row['time_p'];
 $date=$row['date_p'];
-
 
 echo '<tr> 
 <th scope="row">'.$course.'</th>
